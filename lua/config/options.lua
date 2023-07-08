@@ -1,0 +1,45 @@
+local options = {
+    backup = false,
+    cmdheight = 1,
+    completeopt = { "menuone", "noselect" },
+    conceallevel = 0,
+    cursorline = true,
+    expandtab = true,
+    fileencoding = "utf-8",
+    guicursor = "",
+    hlsearch = true,
+    ignorecase = true,
+    laststatus = 3,
+    mouse = "a",
+    number = true,
+    numberwidth = 4,
+    pumheight = 10,
+    relativenumber = true,
+    scrolloff = 8,
+    shiftwidth = 4,
+    showmode = false,
+    sidescrolloff = 8,
+    signcolumn = "yes",
+    smartcase = true,
+    smartindent = true,
+    splitbelow = true,
+    splitright = true,
+    swapfile = false,
+    tabstop = 4,
+    termguicolors = true,
+    undofile = true,
+    updatetime = 50,
+    wrap = false,
+    writebackup = false,
+    showtabline = 4,
+}
+
+for k, v in pairs(options) do
+    vim.opt[k] = v
+end
+
+vim.cmd("set whichwrap+=<,>,[,],h,l")
+vim.cmd([[set iskeyword+=-]])
+vim.cmd([[set t_Co=256]])
+
+vim.opt.shortmess:append("c")
