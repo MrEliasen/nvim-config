@@ -4,6 +4,7 @@ local options = {
     completeopt = { "menuone", "noselect" },
     conceallevel = 0,
     cursorline = true,
+    colorcolumn = "120",
     expandtab = true,
     fileencoding = "utf-8",
     guicursor = "",
@@ -18,6 +19,7 @@ local options = {
     scrolloff = 8,
     shiftwidth = 4,
     showmode = false,
+    showtabline = 4,
     sidescrolloff = 8,
     signcolumn = "yes",
     smartcase = true,
@@ -26,12 +28,12 @@ local options = {
     splitright = true,
     swapfile = false,
     tabstop = 4,
+    softtabstop = 4,
     termguicolors = true,
     undofile = true,
     updatetime = 50,
     wrap = false,
     writebackup = false,
-    showtabline = 4,
 }
 
 for k, v in pairs(options) do

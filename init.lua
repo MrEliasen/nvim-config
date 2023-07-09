@@ -1,11 +1,12 @@
+-- Dependencies
 require("config.packer")
 require("import")
 
--- Core
+-- Settings and keymappings
 require("config.options")
 require("config.keymaps")
 
--- -- Plugins
+-- Plugins
 require("config.alpha")
 require("config.better-escape")
 require("config.catppuccin")

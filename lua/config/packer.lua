@@ -55,6 +55,7 @@ return packer.startup(function(use)
 
     -- Colorscheme
     use({"catppuccin/nvim", as = "catppuccin" })
+    use('nvim-tree/nvim-web-devicons')
 
     -- Treesitter
     use("nvim-treesitter/nvim-treesitter")
@@ -65,6 +66,10 @@ return packer.startup(function(use)
         "nvim-telescope/telescope-fzf-native.nvim",
         run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
     })
+    use {
+        "nvim-telescope/telescope-file-browser.nvim",
+        requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+    }
 
     -- CMP
     use("hrsh7th/nvim-cmp")
@@ -102,9 +107,6 @@ return packer.startup(function(use)
     -- Misc
     use("akinsho/toggleterm.nvim")
     use("rcarriga/nvim-notify")
-
-    -- Learn VIM
-    use("ThePrimeagen/vim-be-good")
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()
