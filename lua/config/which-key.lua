@@ -80,6 +80,7 @@ import("which-key", function(whichKey)
             ["a"] = { "<cmd>CodeActionMenu<cr>", "Code actions" },
             ["f"] = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
             ["l"] = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Open float" },
+            ["h"] = { ":LspRestart<cr>", "Restart LSP Server" },
             ["t"] = {
                 name = "TypeScript",
                 ["a"] = { "<cmd>TypescriptAddMissingImports<CR>", "Add missing imports" },
