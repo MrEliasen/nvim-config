@@ -1,7 +1,6 @@
 require("config.lsp.config")
 require("config.lsp.fidget")
 require("config.lsp.inc-rename")
-require("config.lsp.signature")
 require("config.lsp.trouble")
 
 import({ "mason", "mason-lspconfig", "lspconfig", "cmp_nvim_lsp" }, function(modules)

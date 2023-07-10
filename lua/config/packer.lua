@@ -90,7 +90,6 @@ return packer.startup(function(use)
     use("jose-elias-alvarez/typescript.nvim")
     use("simrat39/symbols-outline.nvim")
     use({"j-hui/fidget.nvim", tag = "legacy"})
-    use("ray-x/lsp_signature.nvim")
     use("smjonas/inc-rename.nvim")
     use({
 		"weilbith/nvim-code-action-menu",
