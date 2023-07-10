@@ -59,6 +59,7 @@ import("which-key", function(whichKey)
         -- },
         ["h"] = {
             name = "Harpoon",
+            ["e"] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "View Marked Files" },
             ["h"] = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Mark file" },
             ["a"] = { "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "Nav file 1" },
             ["s"] = { "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", "Nav file 2" },
