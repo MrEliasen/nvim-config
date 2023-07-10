@@ -71,4 +71,6 @@ import({ "mason", "mason-lspconfig", "lspconfig", "cmp_nvim_lsp" }, function(mod
 			end)
 		end,
 	})
+
+    require("config.lsp.null-ls")
 end)

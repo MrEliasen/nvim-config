@@ -92,8 +92,14 @@ return packer.startup(function(use)
     use({"j-hui/fidget.nvim", tag = "legacy"})
     use("ray-x/lsp_signature.nvim")
     use("smjonas/inc-rename.nvim")
+    use({
+		"weilbith/nvim-code-action-menu",
+		cmd = "CodeActionMenu",
+	})
     use("folke/trouble.nvim")
     use("simrat39/rust-tools.nvim")
+    use('jose-elias-alvarez/null-ls.nvim')
+    use("jayp0521/mason-null-ls.nvim")
 
     -- Editing
     use("max397574/better-escape.nvim")
