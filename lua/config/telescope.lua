@@ -7,6 +7,7 @@ import({ "telescope", "telescope.actions" }, function(modules)
             file_ignore_patterns = {
                 ".git/",
                 "node_modules/*",
+                "public",
             },
             mappings = {
                 i = {
