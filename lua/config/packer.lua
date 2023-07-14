@@ -39,49 +39,49 @@ vim.loader.enable()
 return packer.startup(function(use)
     -- Essentials
     use("wbthomason/packer.nvim")
-    use("nvim-lua/plenary.nvim")
-    use("miversen33/import.nvim")
+    use("nvim-lua/plenary.nvim") -- lua functions
+    use("miversen33/import.nvim") -- depreciated import lib
+    use('nvim-tree/nvim-web-devicons') -- Icons
 
     -- Navigation
-    use("folke/which-key.nvim")
+    use("folke/which-key.nvim") -- key mapping
 
     -- Buffers & navigation
-    use("nvim-lualine/lualine.nvim")
-    use("lukas-reineke/indent-blankline.nvim")
-    use("kevinhwang91/nvim-hlslens")
-    use("yamatsum/nvim-cursorline")
-    use("brenoprata10/nvim-highlight-colors")
-    use("ThePrimeagen/harpoon")
+    use("nvim-lualine/lualine.nvim") -- footer
+    use("lukas-reineke/indent-blankline.nvim") -- indent guides
+    use("kevinhwang91/nvim-hlslens") -- search highlight
+    use("yamatsum/nvim-cursorline") -- cursor word highlight
+    use("brenoprata10/nvim-highlight-colors") -- highlights colours
+    use("ThePrimeagen/harpoon") -- Harpoon Man's bible
 
     -- Colorscheme
-    use({"catppuccin/nvim", as = "catppuccin" })
-    use('nvim-tree/nvim-web-devicons')
+    use({"catppuccin/nvim", as = "catppuccin" }) -- Theme
 
     -- Treesitter
-    use("nvim-treesitter/nvim-treesitter")
+    use("nvim-treesitter/nvim-treesitter") -- syntax highlighter
 
     -- Telescope
-    use("nvim-telescope/telescope.nvim")
+    use("nvim-telescope/telescope.nvim") -- file search
     use({
         "nvim-telescope/telescope-fzf-native.nvim",
         run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-    })
+    }) -- fuzzy file search
     use {
         "nvim-telescope/telescope-file-browser.nvim",
         requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
-    }
+    } -- file browser for telescope
 
     -- CMP
-    use("hrsh7th/nvim-cmp")
-    use("hrsh7th/cmp-buffer")
-    use("hrsh7th/cmp-path")
-    use("hrsh7th/cmp-cmdline")
-    use("saadparwaiz1/cmp_luasnip")
-    use("L3MON4D3/LuaSnip")
-    use("hrsh7th/cmp-nvim-lsp")
-    use("onsails/lspkind.nvim")
-    use("zbirenbaum/copilot.lua")
-    use("zbirenbaum/copilot-cmp")
+    use("hrsh7th/nvim-cmp") -- completion
+    use("hrsh7th/cmp-buffer") -- buffer completion
+    use("hrsh7th/cmp-path") -- path completion
+    use("hrsh7th/cmp-cmdline") -- cmd line completion
+    --use("L3MON4D3/LuaSnip")
+    --use("saadparwaiz1/cmp_luasnip") -- lua snippet completion
+    use("hrsh7th/cmp-nvim-lsp") -- completion integration with lsp
+    use("onsails/lspkind.nvim") -- lsp pictograms
+    use("zbirenbaum/copilot.lua") -- copilot
+    use("zbirenbaum/copilot-cmp") -- copilot completions
 
     -- LSP
     use("williamboman/mason.nvim")
