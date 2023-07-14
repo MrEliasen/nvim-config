@@ -26,10 +26,10 @@ import("catppuccin", function(catppuccin)
         highlight_overrides = {
             mocha = function(C)
                 return {
-                    TabLineSel = { bg = C.pink },
+                 --   TabLineSel = { bg = C.pink },
                     NvimTreeNormal = { bg = C.none },
                     CmpBorder = { fg = C.surface2 },
-                    Pmenu = { bg = C.none },
+                  --  Pmenu = { bg = C.none },
                     NormalFloat = { bg = C.none },
                     TelescopeBorder = { link = "FloatBorder" },
                 }
