@@ -76,8 +76,8 @@ return packer.startup(function(use)
     use("hrsh7th/cmp-buffer") -- buffer completion
     use("hrsh7th/cmp-path") -- path completion
     use("hrsh7th/cmp-cmdline") -- cmd line completion
-    --use("L3MON4D3/LuaSnip")
-    --use("saadparwaiz1/cmp_luasnip") -- lua snippet completion
+    use("L3MON4D3/LuaSnip")
+    use("saadparwaiz1/cmp_luasnip") -- lua snippet completion
     use("hrsh7th/cmp-nvim-lsp") -- completion integration with lsp
     use("onsails/lspkind.nvim") -- lsp pictograms
     use("zbirenbaum/copilot.lua") -- copilot
