@@ -29,7 +29,7 @@ import("catppuccin", function(catppuccin)
                  --   TabLineSel = { bg = C.pink },
                     NvimTreeNormal = { bg = C.none },
                     CmpBorder = { fg = C.surface2 },
-                  --  Pmenu = { bg = C.none },
+                    Pmenu = { bg = C.none },
                     NormalFloat = { bg = C.none },
                     TelescopeBorder = { link = "FloatBorder" },
                 }
