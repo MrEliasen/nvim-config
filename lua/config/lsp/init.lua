@@ -2,6 +2,7 @@ require("config.lsp.config")
 require("config.lsp.fidget")
 require("config.lsp.inc-rename")
 require("config.lsp.trouble")
+require("config.lsp.phpactor")
 
 import({ "mason", "mason-lspconfig", "lspconfig", "cmp_nvim_lsp" }, function(modules)
 	local mason = modules.mason
@@ -27,6 +28,7 @@ import({ "mason", "mason-lspconfig", "lspconfig", "cmp_nvim_lsp" }, function(mod
 			"prismals",
 			"tailwindcss",
 			"html",
+            "phpactor",
 			"cssls",
 			--"astro",
 			"yamlls",

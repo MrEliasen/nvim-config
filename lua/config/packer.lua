@@ -99,6 +99,13 @@ return packer.startup(function(use)
     use("simrat39/rust-tools.nvim")
     use('jose-elias-alvarez/null-ls.nvim')
     use("jayp0521/mason-null-ls.nvim")
+    use {"gbprod/phpactor.nvim",
+      -- run = require("phpactor.handler.update"), -- To install/update phpactor when installing this plugin
+      requires = {
+        "nvim-lua/plenary.nvim", -- required to update phpactor
+        "neovim/nvim-lspconfig" -- required to automaticly register lsp serveur
+      }
+    }
 
     -- Editing
     use("max397574/better-escape.nvim")
