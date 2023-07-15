@@ -18,8 +18,8 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts)
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
 
 -- searching
-vim.keymap.set("n", "n", "nzzzv", opts)
-vim.keymap.set("n", "N", "NFzzzv", opts)
+--[[ vim.keymap.set("n", "n", "nzzzv", opts) ]]
+--[[ vim.keymap.set("n", "N", "NFzzzv", opts) ]]
 
 -- find replace word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], normp)
