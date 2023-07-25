@@ -22,6 +22,12 @@ import("which-key", function(whichKey)
     local mappings = {
         ["w"] = { "<cmd>w<cr>", "Save" },
         ["q"] = { "<cmd>q<cr>", "Quit" },
+        ["s"] = {
+            name = "Search & Replace",
+            ["c"] = { "<cmd>:let @/=''<CR>", "Clear" },
+            ["s"] = { [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "File Replace Word" },
+            ["d"] = { [[:.,.+25s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "25l Replace Word" },
+        },
         ["p"] = {
             name = "Project",
             ["k"] = {
