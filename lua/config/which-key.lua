@@ -26,7 +26,8 @@ import("which-key", function(whichKey)
             name = "Search & Replace",
             ["c"] = { "<cmd>:let @/=''<CR>", "Clear" },
             ["s"] = { [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "File Replace Word" },
-            ["d"] = { [[:.,.+25s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "25l Replace Word" },
+            ["d"] = { [[:.,.+25s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "Next 25L - Replace Word" },
+            ["f"] = { [[:.,.+0s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "Same Line - Replace Word" },
         },
         ["p"] = {
             name = "Project",
