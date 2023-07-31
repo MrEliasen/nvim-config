@@ -53,6 +53,7 @@ return packer.startup(function(use)
     use("yamatsum/nvim-cursorline") -- cursor word highlight
     use("brenoprata10/nvim-highlight-colors") -- highlights colours
     use("ThePrimeagen/harpoon") -- Harpoon Man's bible
+    use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'} -- tabs/buffer visualiser
 
     -- Colorscheme
     use({"catppuccin/nvim", as = "catppuccin" }) -- Theme

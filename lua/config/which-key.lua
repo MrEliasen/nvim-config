@@ -48,6 +48,12 @@ import("which-key", function(whichKey)
             ["B"] = { "<cmd>lua require('telescope').extensions.file_browser.file_browser(%:p:h, true)<CR>", "Browse Relative" },
             ["m"] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Marked files" },
         },
+        ["b"] = {
+			name = "Buffers",
+			["m"] = { "<cmd>BufferLineCloseRight<cr><cmd>BufferLineCloseLeft<cr>", "Close all other" },
+			["l"] = { "<cmd>BufferLineCloseRight<cr>", "Close right" },
+			["h"] = { "<cmd>BufferLineCloseLeft<cr>", "Close left" },
+		},
         -- ["g"] = {
         --     name = "Git",
         --     ["s"] = { "<cmd>lua require('telescope.builtin').git_status()<CR>", "Status" },

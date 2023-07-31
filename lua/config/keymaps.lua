@@ -17,6 +17,10 @@ vim.keymap.set("v", "<A-k>", ":m .-2<CR>==", opts)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts)
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
 
+-- Navigate buffers
+vim.keymap.set("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
+vim.keymap.set("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
+
 -- searching
 --[[ vim.keymap.set("n", "n", "nzzzv", opts) ]]
 --[[ vim.keymap.set("n", "N", "NFzzzv", opts) ]]
