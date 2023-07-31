@@ -50,6 +50,7 @@ import("which-key", function(whichKey)
         },
         ["b"] = {
 			name = "Buffers",
+			["d"] = { "<cmd>Bdelete<cr>", "Close Current" },
 			["m"] = { "<cmd>BufferLineCloseRight<cr><cmd>BufferLineCloseLeft<cr>", "Close all other" },
 			["l"] = { "<cmd>BufferLineCloseRight<cr>", "Close right" },
 			["h"] = { "<cmd>BufferLineCloseLeft<cr>", "Close left" },

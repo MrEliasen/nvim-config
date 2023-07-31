@@ -54,6 +54,7 @@ return packer.startup(function(use)
     use("brenoprata10/nvim-highlight-colors") -- highlights colours
     use("ThePrimeagen/harpoon") -- Harpoon Man's bible
     use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'} -- tabs/buffer visualiser
+    use("famiu/bufdelete.nvim") -- fixes issues with buffer delete messing layout
 
     -- Colorscheme
     use({"catppuccin/nvim", as = "catppuccin" }) -- Theme
