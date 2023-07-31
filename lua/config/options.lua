@@ -1,4 +1,5 @@
 local options = {
+    autoindent = true,
     backup = false,
     cmdheight = 1,
     completeopt = { "menuone", "noselect" },
