@@ -44,6 +44,7 @@ import("which-key", function(whichKey)
             name = "Find",
             ["t"] = { "<cmd>lua require('telescope.builtin').live_grep()<CR>", "Text" },
             ["f"] = { "<cmd>lua require('telescope.builtin').find_files()<CR>", "Files" },
+            ["r"] = { "<cmd>lua require('telescope.builtin').resume()<CR>", "Resume last search" },
             ["h"] = { "<cmd>lua require('telescope.builtin').help_tags()<CR>", "Help tags" },
             ["b"] = { "<cmd>lua require('telescope').extensions.file_browser.file_browser()<CR>", "Browse Files" },
             ["B"] = { "<cmd>lua require('telescope').extensions.file_browser.file_browser(%:p:h, true)<CR>", "Browse Relative" },
