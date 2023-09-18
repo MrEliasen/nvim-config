@@ -39,6 +39,18 @@ import("which-key", function(whichKey)
                 ["c"] = { "<cmd>PackerCompile<CR>", "Compile" },
             },
             ["v"] = { "<cmd>Ex<CR>", "NetRW Explorer" },
+            ["f"] = {
+                name = "Flutter",
+                ["r"] = {
+                    name = "Reload/Restart",
+                    ["r"] = { "<cmd>FlutterHotReload<CR>", "Reload" },
+                    ["s"] = { "<cmd>FlutterHotRestart<CR>", "Restart" },
+                    ["q"] = { "<cmd>FlutterQuit<CR>", "Stop" },
+                },
+                ["g"] = { "<cmd>FlutterRun<CR>", "Run" },
+                ["t"] = { "<cmd>FlutterTab<CR>", "Move Flutter to tab" },
+                ["v"] = { "<cmd>FlutterVisualDebug<CR>", "Toggle Visual Debug" },
+            },
         },
         ["f"] = {
             name = "Find",
