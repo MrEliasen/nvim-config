@@ -12,7 +12,7 @@ M.on_attach = function(client, bufnr)
 		client.server_capabilities.document_formatting = false
 	end
 
-	if client.name == "tsserver" then
+	--[[ if client.name == "tsserver" then
 		keymap(bufnr, "n", "gd", "<cmd>TypescriptGoToSourceDefinition<CR>", opts)
 	else
 		keymap(bufnr, "n", "gd", "<cmd>Trouble lsp_definitions<CR>", opts)
@@ -29,7 +29,7 @@ M.on_attach = function(client, bufnr)
 	keymap(bufnr, "n", "gf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
 	keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 	keymap(bufnr, "n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-	keymap(bufnr, "n", "d]", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+	keymap(bufnr, "n", "d]", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts) ]]
 end
 
 return M
