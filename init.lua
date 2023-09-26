@@ -8,7 +8,7 @@ require("config.keymaps")
 
 -- Plugins
 require("config.alpha")
-require("config.better-escape")
+--require("config.better-escape")
 require("config.catppuccin")
 require("config.cmp")
 require("config.comment")
