@@ -71,7 +71,20 @@ import({ "mason", "mason-lspconfig", "lspconfig", "cmp_nvim_lsp" }, function(mod
 				rustTools.setup({ server = opts })
 			end)
 		end,
-	})
+        ["gopls"] = function()
+            modules.lspconfig.gopls.setup({
+                settings = {
+                    gopls = {
+                        analyses = {
+                            unusedparams = true,
+                        },
+                        staticcheck = true,
+                        gofumpt = true,
+                    },
+                },
+            })
+        end,
+    })
 
     require("config.lsp.null-ls")
 end)

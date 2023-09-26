@@ -26,3 +26,6 @@ require("config.telescope")
 require("config.toggleterm")
 require("config.treesitter")
 require("config.which-key")
+
+-- Additional Configuration
+require("config.autocmds")
