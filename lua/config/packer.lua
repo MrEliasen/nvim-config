@@ -39,25 +39,25 @@ vim.loader.enable()
 return packer.startup(function(use)
     -- Essentials
     use("wbthomason/packer.nvim")
-    use("nvim-lua/plenary.nvim") -- lua functions
-    use("miversen33/import.nvim") -- depreciated import lib
+    use("nvim-lua/plenary.nvim")       -- lua functions
+    use("miversen33/import.nvim")      -- depreciated import lib
     use('nvim-tree/nvim-web-devicons') -- Icons
 
     -- Navigation
     use("folke/which-key.nvim") -- key mapping
 
     -- Buffers & navigation
-    use("nvim-lualine/lualine.nvim") -- footer
-    use("lukas-reineke/indent-blankline.nvim") -- indent guides
-    use("kevinhwang91/nvim-hlslens") -- search highlight
-    use("yamatsum/nvim-cursorline") -- cursor word highlight
-    use("brenoprata10/nvim-highlight-colors") -- highlights colours
-    use("ThePrimeagen/harpoon") -- Harpoon Man's bible
-    use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'} -- tabs/buffer visualiser
-    use("famiu/bufdelete.nvim") -- fixes issues with buffer delete messing layout
+    use("nvim-lualine/lualine.nvim")                                                     -- footer
+    use("lukas-reineke/indent-blankline.nvim")                                           -- indent guides
+    use("kevinhwang91/nvim-hlslens")                                                     -- search highlight
+    use("yamatsum/nvim-cursorline")                                                      -- cursor word highlight
+    use("brenoprata10/nvim-highlight-colors")                                            -- highlights colours
+    use("ThePrimeagen/harpoon")                                                          -- Harpoon Man's bible
+    use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' } -- tabs/buffer visualiser
+    use("famiu/bufdelete.nvim")                                                          -- fixes issues with buffer delete messing layout
 
     -- Colorscheme
-    use({"catppuccin/nvim", as = "catppuccin" }) -- Theme
+    use({ "catppuccin/nvim", as = "catppuccin" }) -- Theme
 
     -- Treesitter
     use("nvim-treesitter/nvim-treesitter") -- syntax highlighter
@@ -66,7 +66,8 @@ return packer.startup(function(use)
     use("nvim-telescope/telescope.nvim") -- file search
     use({
         "nvim-telescope/telescope-fzf-native.nvim",
-        run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+        run =
+        "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
     }) -- fuzzy file search
     use {
         "nvim-telescope/telescope-file-browser.nvim",
@@ -74,16 +75,16 @@ return packer.startup(function(use)
     } -- file browser for telescope
 
     -- CMP
-    use("hrsh7th/nvim-cmp") -- completion
-    use("hrsh7th/cmp-buffer") -- buffer completion
-    use("hrsh7th/cmp-path") -- path completion
-    use("hrsh7th/cmp-cmdline") -- cmd line completion
+    use("hrsh7th/nvim-cmp")         -- completion
+    use("hrsh7th/cmp-buffer")       -- buffer completion
+    use("hrsh7th/cmp-path")         -- path completion
+    use("hrsh7th/cmp-cmdline")      -- cmd line completion
     use("L3MON4D3/LuaSnip")
     use("saadparwaiz1/cmp_luasnip") -- lua snippet completion
-    use("hrsh7th/cmp-nvim-lsp") -- completion integration with lsp
-    use("onsails/lspkind.nvim") -- lsp pictograms
-    use("zbirenbaum/copilot.lua") -- copilot
-    use("zbirenbaum/copilot-cmp") -- copilot completions
+    use("hrsh7th/cmp-nvim-lsp")     -- completion integration with lsp
+    use("onsails/lspkind.nvim")     -- lsp pictograms
+    --use("zbirenbaum/copilot.lua") -- copilot
+    --use("zbirenbaum/copilot-cmp") -- copilot completions
 
     -- LSP
     use("williamboman/mason.nvim")
@@ -91,12 +92,12 @@ return packer.startup(function(use)
     use("neovim/nvim-lspconfig")
     use("jose-elias-alvarez/typescript.nvim")
     use("simrat39/symbols-outline.nvim")
-    use({"j-hui/fidget.nvim", tag = "legacy"})
+    use({ "j-hui/fidget.nvim", tag = "legacy" })
     use("smjonas/inc-rename.nvim")
     use({
-		"weilbith/nvim-code-action-menu",
-		cmd = "CodeActionMenu",
-	})
+        "weilbith/nvim-code-action-menu",
+        cmd = "CodeActionMenu",
+    })
     use("folke/trouble.nvim")
     use("simrat39/rust-tools.nvim")
     use('jose-elias-alvarez/null-ls.nvim')
@@ -105,7 +106,7 @@ return packer.startup(function(use)
         -- run = require("phpactor.handler.update"), -- To install/update phpactor when installing this plugin
         requires = {
             "nvim-lua/plenary.nvim", -- required to update phpactor
-            "neovim/nvim-lspconfig" -- required to automaticly register lsp serveur
+            "neovim/nvim-lspconfig"  -- required to automaticly register lsp serveur
         }
     }
     --use("dart-lang/dart-vim-plugin")
