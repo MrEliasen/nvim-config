@@ -106,6 +106,7 @@ import("which-key", function(whichKey)
             ["n"] = { ":IncRename ", "Rename" },
             ["a"] = { "<cmd>CodeActionMenu<cr>", "Code actions" },
             ["f"] = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
+            --["f"] = { "<cmd>:Prettier<cr>", "Format" },
             ["l"] = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Open float" },
             ["h"] = { ":LspRestart<cr>", "Restart LSP Server" },
             ["y"] = { ":LspStart<cr>", "Start LSP Server" },

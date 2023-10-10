@@ -47,14 +47,14 @@ return packer.startup(function(use)
     use("folke/which-key.nvim") -- key mapping
 
     -- Buffers & navigation
-    use("nvim-lualine/lualine.nvim")                                                     -- footer
-    use("lukas-reineke/indent-blankline.nvim")                                           -- indent guides
-    use("kevinhwang91/nvim-hlslens")                                                     -- search highlight
-    use("yamatsum/nvim-cursorline")                                                      -- cursor word highlight
-    use("brenoprata10/nvim-highlight-colors")                                            -- highlights colours
-    use("ThePrimeagen/harpoon")                                                          -- Harpoon Man's bible
+    use("nvim-lualine/lualine.nvim")                                                       -- footer
+    use { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }                 -- indent guides
+    use("kevinhwang91/nvim-hlslens")                                                       -- search highlight
+    use("yamatsum/nvim-cursorline")                                                        -- cursor word highlight
+    use("brenoprata10/nvim-highlight-colors")                                              -- highlights colours
+    use("ThePrimeagen/harpoon")                                                            -- Harpoon Man's bible
     use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' } -- tabs/buffer visualiser
-    use("famiu/bufdelete.nvim")                                                          -- fixes issues with buffer delete messing layout
+    use("famiu/bufdelete.nvim")                                                            -- fixes issues with buffer delete messing layout
 
     -- Colorscheme
     use({ "catppuccin/nvim", as = "catppuccin" }) -- Theme
@@ -83,8 +83,6 @@ return packer.startup(function(use)
     use("saadparwaiz1/cmp_luasnip") -- lua snippet completion
     use("hrsh7th/cmp-nvim-lsp")     -- completion integration with lsp
     use("onsails/lspkind.nvim")     -- lsp pictograms
-    --use("zbirenbaum/copilot.lua") -- copilot
-    --use("zbirenbaum/copilot-cmp") -- copilot completions
 
     -- LSP
     use("williamboman/mason.nvim")
@@ -102,13 +100,13 @@ return packer.startup(function(use)
     use("simrat39/rust-tools.nvim")
     use('jose-elias-alvarez/null-ls.nvim')
     use("jayp0521/mason-null-ls.nvim")
-    use { "gbprod/phpactor.nvim",
+    --[[ use { "gbprod/phpactor.nvim",
         -- run = require("phpactor.handler.update"), -- To install/update phpactor when installing this plugin
         requires = {
             "nvim-lua/plenary.nvim", -- required to update phpactor
             "neovim/nvim-lspconfig"  -- required to automaticly register lsp serveur
         }
-    }
+    } ]]
     --use("dart-lang/dart-vim-plugin")
     use("thosakwe/vim-flutter")
     use {
@@ -117,7 +115,11 @@ return packer.startup(function(use)
             'nvim-lua/plenary.nvim',
         },
     }
-
+    --[[ use {
+        'prettier/vim-prettier',
+        run = 'npm install',
+        ft = { 'svelte', 'php' }
+    } ]]
     -- Editing
     use("max397574/better-escape.nvim")
     use("ethanholz/nvim-lastplace")
@@ -125,11 +127,18 @@ return packer.startup(function(use)
     use("JoosepAlviste/nvim-ts-context-commentstring")
 
     -- UI
-    use("goolord/alpha-nvim")
+    use {
+        'goolord/alpha-nvim',
+        config = function()
+            require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
+        end
+    }
 
     -- Misc
-    use("akinsho/toggleterm.nvim")
     use("rcarriga/nvim-notify")
+    use { "akinsho/toggleterm.nvim", tag = '*', config = function()
+        require("toggleterm").setup()
+    end }
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()
