@@ -21,12 +21,5 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
 vim.keymap.set("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
 vim.keymap.set("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
 
--- searching
---[[ vim.keymap.set("n", "n", "nzzzv", opts) ]]
---[[ vim.keymap.set("n", "N", "NFzzzv", opts) ]]
-
--- find replace word
--- vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], normp)
-
 -- open file_browser with the path of the current buffer
 vim.keymap.set("n", "<leader>fr", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", normp)

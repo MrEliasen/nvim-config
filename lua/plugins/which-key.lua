@@ -1,4 +1,3 @@
-import("which-key", function(whichKey)
     local setup = {
         window = {
             border = "rounded",
@@ -32,11 +31,11 @@ import("which-key", function(whichKey)
         ["p"] = {
             name = "Project",
             ["k"] = {
-                name = "Packer",
-                ["s"] = { "<cmd>PackerSync<CR>", "Sync" },
-                ["i"] = { "<cmd>PackerInstall<CR>", "Install" },
-                ["u"] = { "<cmd>PackerUpdate<CR>", "Update" },
-                ["c"] = { "<cmd>PackerCompile<CR>", "Compile" },
+                name = "Lazy",
+                ["s"] = { "<cmd>Lazy sync<CR>", "Sync" },
+                ["i"] = { "<cmd>Lazy install<CR>", "Install" },
+                ["u"] = { "<cmd>Lazy update<CR>", "Update" },
+                ["c"] = { "<cmd>Lazy check<CR>", "Check" },
             },
             ["v"] = { "<cmd>Ex<CR>", "NetRW Explorer" },
             ["f"] = {
@@ -64,7 +63,7 @@ import("which-key", function(whichKey)
         },
         ["b"] = {
 			name = "Buffers",
-			["d"] = { "<cmd>Bdelete<cr>", "Close Current" },
+			["d"] = { "<cmd>bdelete<cr>", "Close Current" },
 			["m"] = { "<cmd>BufferLineCloseRight<cr><cmd>BufferLineCloseLeft<cr>", "Close all other" },
 			["l"] = { "<cmd>BufferLineCloseRight<cr>", "Close right" },
 			["h"] = { "<cmd>BufferLineCloseLeft<cr>", "Close left" },
@@ -104,7 +103,7 @@ import("which-key", function(whichKey)
             ["k"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature help" },
             ["s"] = { "<cmd>SymbolsOutline<cr>", "Toggle symbols outline" },
             ["n"] = { ":IncRename ", "Rename" },
-            ["a"] = { "<cmd>CodeActionMenu<cr>", "Code actions" },
+            ["a"] = { "<cmd>lua require('actions-preview').code_actions()<cr>", "Code actions" },
             ["f"] = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
             --["f"] = { "<cmd>:Prettier<cr>", "Format" },
             ["l"] = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Open float" },
@@ -136,6 +135,6 @@ import("which-key", function(whichKey)
         }
     }
 
-    whichKey.setup(setup)
-    whichKey.register(mappings, opts)
-end)
+local wk = require("which-key")
+wk.setup(setup)
+wk.register(mappings, opts)

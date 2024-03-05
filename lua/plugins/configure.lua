@@ -1,0 +1,16 @@
+require("plugins.theme")
+require("plugins.telescope")
+require("plugins.harpoon")
+require("plugins.which-key")
+require("plugins.lualine")
+require("plugins.toggleterm")
+require("plugins.treesitter")
+require("plugins.comment")
+require("plugins.bufferline")
+-- LSP
+require("plugins.lsp.mason")
+require("plugins.lsp.php")
+require("plugins.lsp.trouble")
+-- CMP
+require("plugins.cmp.cmp")
+require("plugins.cmp.actions-preview")
