@@ -9,6 +9,7 @@ require("plugins.comment")
 require("plugins.bufferline")
 require("plugins.fidget")
 require("plugins.alpha")
+require("plugins.hlslens")
 -- LSP
 require("plugins.lsp.mason")
 require("plugins.lsp.php")
