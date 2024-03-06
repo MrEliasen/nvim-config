@@ -8,6 +8,7 @@ require("plugins.treesitter")
 require("plugins.comment")
 require("plugins.bufferline")
 require("plugins.fidget")
+require("plugins.alpha")
 -- LSP
 require("plugins.lsp.mason")
 require("plugins.lsp.php")

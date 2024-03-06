@@ -91,4 +91,10 @@ return {
     {
       "j-hui/fidget.nvim",
     },
+    {
+        'goolord/alpha-nvim',
+        config = function ()
+            require'alpha'.setup(require'alpha.themes.dashboard'.config)
+        end
+    }
 }
