@@ -1,12 +1,13 @@
 local lspkind = require('lspkind')
-local luasnip = require("luasnip/loaders/from_vscode")
+local cmp = require("cmp")
+local luasnip = require("luasnip")
+local luasnip_vscode = require("luasnip/loaders/from_vscode")
+luasnip_vscode.lazy_load()
 
 local check_backspace = function()
     local col = vim.fn.col(".") - 1
     return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 end
-
-local cmp = require("cmp")
 
 cmp.setup.cmdline({ "/", "?" }, {
     mapping = cmp.mapping.preset.cmdline(),
@@ -55,6 +56,18 @@ require("cmp").setup({
             "i",
             "s",
         }),
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, {
+            "i",
+            "s",
+        }),
     },
     formatting = {
         fields = { "abbr", "kind", "menu" },
@@ -78,23 +91,22 @@ require("cmp").setup({
     },
     sources = {
         { name = "nvim_lsp" },
-        --{ name = "copilot" },
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
     },
-    --confirm_opts = {
-    --    behavior = cmp.ConfirmBehavior.Replace,
-    --    select = false,
-    --},
+    confirm_opts = {
+        behavior = cmp.ConfirmBehavior.Replace,
+        select = false,
+    },
     window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
     },
-    --experimental = {
-    --    ghost_text = false,
-    --    native_menu = false,
-    --},
+    experimental = {
+        ghost_text = false,
+        native_menu = false,
+    },
     --performance = {
     --   debounce = 150,
     --},

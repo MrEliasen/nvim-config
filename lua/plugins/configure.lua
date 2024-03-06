@@ -12,7 +12,6 @@ require("plugins.alpha")
 require("plugins.hlslens")
 -- LSP
 require("plugins.lsp.mason")
-require("plugins.lsp.php")
 require("plugins.lsp.trouble")
 -- CMP
 require("plugins.cmp.cmp")

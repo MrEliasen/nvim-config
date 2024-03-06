@@ -22,6 +22,7 @@ mason_lsp.setup({
         "prismals",
         "tailwindcss",
         "html",
+        "intelephense",
         "phpactor",
         "gopls",
         "cssls",
