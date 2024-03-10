@@ -35,6 +35,7 @@ local options = {
     updatetime = 50,
     wrap = false,
     writebackup = false,
+    hidden = true,
 }
 
 for k, v in pairs(options) do
