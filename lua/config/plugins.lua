@@ -45,6 +45,9 @@ return {
 
 	-- LSP
     {
+        "github/copilot.vim"
+    },
+    {
         "neovim/nvim-lspconfig",
         lazy = false,
     },

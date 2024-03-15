@@ -23,3 +23,10 @@ vim.keymap.set("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
 
 -- open file_browser with the path of the current buffer
 vim.keymap.set("n", "<leader>fr", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", normp)
+
+-- copilot
+vim.keymap.set('i', '<C-a>', 'copilot#Accept("\\<CR>")', {
+    expr = true,
+    replace_keycodes = false
+})
+vim.g.copilot_no_tab_map = true
