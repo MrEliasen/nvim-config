@@ -57,6 +57,22 @@ mason_lsp.setup_handlers({
 
         require("lspconfig")[server_name].setup(server_opts)
     end,
+    ["phpactor"] = function()
+        require("lspconfig").phpactor.setup({
+            init_options = {
+                ["language_server_phpstan.enabled"] = false,
+            },
+            settings = {
+                phpactor = {
+                    diagnostics = {
+                        phpstan = {
+                            enabled = false, -- Disable PHPStan diagnostics (syntax errors)
+                        },
+                    },
+                },
+            },
+        })
+    end,
     ["gopls"] = function()
         require("lspconfig").gopls.setup({
             settings = {
