@@ -13,6 +13,7 @@ require("plugins.hlslens")
 -- LSP
 require("plugins.lsp.mason")
 require("plugins.lsp.trouble")
+require("plugins.lsp.inc-rename")
 -- CMP
 require("plugins.cmp.cmp")
 require("plugins.cmp.actions-preview")
