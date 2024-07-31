@@ -1,9 +1,9 @@
 local comment = require("Comment");
-local commentstring_utils = require("ts_context_commentstring.utils")
-local commentstring_internal = require("ts_context_commentstring.internal")
+--[[local commentstring_utils = require("ts_context_commentstring.utils")
+local commentstring_internal = require("ts_context_commentstring.internal") ]]
 
-comment.setup({
-    pre_hook = function(ctx)
+comment.setup(
+    --[[ {pre_hook = function(ctx)
         local U = comment.utils 
 
         local location = nil
@@ -17,5 +17,5 @@ comment.setup({
             key = ctx.ctype == U.ctype.line and "__default" or "__multiline",
             location = location,
         })
-    end,
-})
+    end,} ]]
+)
