@@ -44,9 +44,9 @@ return {
 	{ "ThePrimeagen/harpoon", branch = "harpoon2", dependencies = { "nvim-lua/plenary.nvim" } },
 
 	-- LSP
-    {
+    --[[ {
         "github/copilot.vim"
-    },
+    }, ]]
     {
         "neovim/nvim-lspconfig",
         lazy = false,
