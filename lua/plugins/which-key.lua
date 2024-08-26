@@ -101,7 +101,7 @@
             ["R"] = { "<cmd>lua vim.lsp.buf.references()<cr>", "References" },
             ["K"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" },
             ["k"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature help" },
-            ["s"] = { "<cmd>SymbolsOutline<cr>", "Toggle symbols outline" },
+            --["s"] = { "<cmd>SymbolsOutline<cr>", "Toggle symbols outline" },
             ["n"] = { ":IncRename ", "Rename" },
             ["a"] = { "<cmd>lua require('actions-preview').code_actions()<cr>", "Code actions" },
             ["f"] = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
@@ -117,6 +117,12 @@
                 ["f"] = { "<cmd>TypescriptFixAll<CR>", "Fix all" },
                 ["g"] = { "<cmd>TypescriptGoToSourceDefinition<CR>", "Go to source definition" },
                 ["r"] = { "<cmd>TypescriptRenameFile<CR>", "Rename file" },
+            },
+            ["s"] = {
+                name = "Spell Checker",
+                ["j"] = { "<cmd>]s<cr>", "Next word" },
+                ["k"] = { "<cmd>[s<cr>", "Previous word" },
+                ["s"] = { "<cmd>z=<cr>", "Show suggestions" },
             },
             ["r"] = {
                 name = "Rust",
