@@ -7,7 +7,7 @@ telescope.setup({
             ".git/",
             "node_modules/*",
             "vendor/*",
-            "public",
+            "public/js/*",
         },
         mappings = {
             i = {
