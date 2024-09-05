@@ -26,7 +26,6 @@ mason_lsp.setup({
     ensure_installed = {
         "lua_ls",
         "jsonls",
-        "tsserver",
         "eslint",
         "prismals",
         "tailwindcss",
