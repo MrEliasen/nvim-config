@@ -47,6 +47,12 @@ return {
         "github/copilot.vim"
     }, ]]
     {
+        "mfussenegger/nvim-dap",
+    },
+    {
+        "leoluz/nvim-dap-go",
+    },
+    {
         "aznhe21/actions-preview.nvim",
     },
     {

@@ -14,6 +14,7 @@ require("plugins.hlslens")
 require("plugins.lsp.mason")
 require("plugins.lsp.trouble")
 require("plugins.lsp.inc-rename")
+require("plugins.dap-go")
 -- CMP
 require("plugins.cmp.cmp")
 require("plugins.cmp.actions-preview")
