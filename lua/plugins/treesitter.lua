@@ -1,6 +1,5 @@
 require("nvim-treesitter.configs").setup({
     ensure_installed = {
-        "lua",
         "markdown",
         "html",
         "css",
@@ -23,6 +22,7 @@ require("nvim-treesitter.configs").setup({
         "yaml",
         "toml",
     },
+    auto_install = true,
     sync_install = false,
     highlight = {
         enable = true,
@@ -83,6 +83,22 @@ require("nvim-treesitter.configs").setup({
                 ["[]"] = "@class.outer",
             },
         },
+    },
+}, opts)
+
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.blade = {
+    install_info = {
+        url = "https://github.com/EmranMR/tree-sitter-blade",
+        files = { "src/parser.c" },
+        branch = "main",
+    },
+    filetype = "blade",
+}
+
+vim.filetype.add({
+    pattern = {
+        [".*%.blade%.php"] = "blade",
     },
 })
 
