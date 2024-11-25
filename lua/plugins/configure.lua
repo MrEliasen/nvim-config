@@ -23,3 +23,4 @@ require("plugins.cmp.cmp")
 require("plugins.cmp.actions-preview")
 -- MISC
 require("plugins.autocmds")
+require("plugins.cloak")

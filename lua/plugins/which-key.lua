@@ -21,6 +21,10 @@
     local mappings = {
         ["w"] = { "<cmd>w<cr>", "Save" },
         ["q"] = { "<cmd>q<cr>", "Quit" },
+        ["c"] = {
+            name = "Cloak",
+            ["c"] = { "<cmd>CloakToggle<CR>", "Toggle Cloak" },
+        },
         ["s"] = {
             name = "Search & Replace",
             ["c"] = { "<cmd>:let @/=''<CR>", "Clear" },

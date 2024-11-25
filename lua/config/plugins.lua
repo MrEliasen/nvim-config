@@ -156,5 +156,8 @@ return {
     },
     {
         "kevinhwang91/nvim-hlslens"
+    },
+    {
+        "laytan/cloak.nvim"
     }
 }
