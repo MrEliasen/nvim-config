@@ -129,9 +129,8 @@ return {
     }, ]]
 
     -- Misc
-    { 'akinsho/toggleterm.nvim',                    version = "*", config = true },
+    { 'akinsho/toggleterm.nvim', version = "*", config = true },
     { 'rcarriga/nvim-notify' },
-    { 'JoosepAlviste/nvim-ts-context-commentstring' },
     {
         'numToStr/Comment.nvim',
         lazy = false,
