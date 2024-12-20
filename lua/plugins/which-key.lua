@@ -1,16 +1,3 @@
-local setup = {
-    window = {
-        border = "rounded",
-        position = "bottom",
-        margin = { 1, 0, 1, 0 },
-        padding = { 2, 2, 2, 2 },
-        winblend = 0,
-    },
-    ignore_missing = true,
-    hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " },
-    show_help = true,
-}
-
 local mappings = {
     { "<leader>w",  "<cmd>w<cr>",                                                                          mode = "n", desc = "Save" },
     { "<leader>q",  "<cmd>q<cr>",                                                                          mode = "n", desc = "Quit" },
@@ -62,6 +49,8 @@ local mappings = {
     { "<leader>r",  group = "Rust" },
     { "<leader>rr", "<cmd>RustRun<cr>",                                                                    mode = "n", desc = "Run" },
     { "<leader>ra", "<cmd>RustRunnables<cr>",                                                              mode = "n", desc = "Runnables" },
+    { "<leader>c",  group = "Cloak" },
+    { "<leader>cc", "<cmd>:CloakToggle<cr>",                                                                        mode = "n", desc = "Toggle" },
     { "<leader>u",  group = "Trouble" },
     { "<leader>ur", "<cmd>TroubleToggle lsp_references<cr>",                                               mode = "n", desc = "References" },
     { "<leader>uf", "<cmd>TroubleToggle lsp_definitions<cr>",                                              mode = "n", desc = "Definitions" },
@@ -71,6 +60,11 @@ local mappings = {
     { "<leader>uw", "<cmd>TroubleToggle workspace_diagnostics<cr>",                                        mode = "n", desc = "Workspace Diagnostics" },
 }
 
+local opts = {
+    preset = "helix",
+    delay = 10,
+}
+
 local wk = require("which-key")
-wk.setup(setup)
+wk.setup(opts)
 wk.add(mappings)
