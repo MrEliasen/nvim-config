@@ -20,20 +20,14 @@ mason.setup({
         }
     },
     ensure_installed = {
-        "antlers-language-server",
         "bash-language-server",
         "blade-formatter",
         "docker-compose-language-service",
         "dockerfile-language-server",
         "dot-language-server",
-        "emmet-ls",
-        "flake8",
         "html-lsp",
         "intelephense",
-        "nginx-language-server",
-        "php-debug-adapter",
         "phpstan",
-        "pint",
         "prettierd",
         "gopls",
         "lua_ls",
@@ -53,7 +47,6 @@ mason_lsp.setup({
         "lua_ls",
         "jsonls",
         "eslint",
-        "prismals",
         "tailwindcss",
         "html",
         "intelephense",
@@ -62,10 +55,10 @@ mason_lsp.setup({
         "cssls",
         "bashls",
         "svelte",
+        "ols",
         "yamlls",
         "dockerls",
         "marksman",
-        "stimulus_ls"
     },
     automatic_installation = true,
 })
@@ -86,6 +79,17 @@ mason_lsp.setup_handlers({
 
         require("lspconfig")[server_name].setup(server_opts)
     end,
+    --[[ ["ols"] = function()
+        require("lspconfig").ols.setup({
+            init_options = {
+                enable_hover = true,
+                enable_snippets = true,
+                enable_semantic_tokens = true,
+                enable_document_symbols = true,
+                enable_checker_only_saved = false,
+            },
+        })
+    end, ]]
     ["lua_ls"] = function()
         require("lspconfig").lua_ls.setup({
             settings = {

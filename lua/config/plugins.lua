@@ -96,15 +96,15 @@ return {
     --[[ {
         "github/copilot.vim"
     }, ]]
-    {
+    --[[ {
         "mfussenegger/nvim-dap",
-    },
-    {
+    }, ]]
+    --[[ {
         "leoluz/nvim-dap-go",
-    },
-    {
+    }, ]]
+    --[[ {
         "aznhe21/actions-preview.nvim",
-    },
+    }, ]]
     {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
@@ -112,9 +112,9 @@ return {
     {
         "neovim/nvim-lspconfig",
     },
-    {
+    --[[ {
         "stevearc/conform.nvim"
-    },
+    }, ]]
     {
         "ziglang/zig.vim",
     },
@@ -153,8 +153,8 @@ return {
         "folke/which-key.nvim",
         event = "VeryLazy",
         init = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 300
+            vim.o.timeout = false
+            vim.o.timeoutlen = 0
         end,
         opts = {}
     },

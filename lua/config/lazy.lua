@@ -15,7 +15,7 @@ require("lazy").setup("config.plugins", {
     --defaults = { lazy = true },
     checker = { enabled = true },
     concurrency = 5,
-    --[[ performance = {
+    performance = {
         rtp = {
             disabled_plugins = {
                 "gzip",
@@ -25,6 +25,6 @@ require("lazy").setup("config.plugins", {
                 "zipPlugin",
             },
         },
-    }, ]]
+    },
     debug = false,
 })

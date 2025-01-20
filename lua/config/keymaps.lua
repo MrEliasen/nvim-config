@@ -22,7 +22,7 @@ vim.keymap.set("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
 vim.keymap.set("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
 
 -- open file_browser with the path of the current buffer
-vim.keymap.set("n", "<leader>fr", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", normp)
+-- vim.keymap.set("n", "<leader>fr", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", normp)
 
 -- copilot
 --[[ vim.keymap.set('i', '<C-a>', 'copilot#Accept("\\<CR>")', {
