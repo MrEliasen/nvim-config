@@ -53,7 +53,7 @@ return {
     },
     {
         'nvim-telescope/telescope-fzf-native.nvim',
-        build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release'
+        build = 'zig cc -O3 -Wall -Werror -fpic -std=gnu99 -shared src/fzf.c -o build/libfzf.dll'
     },
     {
         "nvim-telescope/telescope-file-browser.nvim",
