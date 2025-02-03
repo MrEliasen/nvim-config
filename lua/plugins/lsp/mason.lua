@@ -79,7 +79,7 @@ mason_lsp.setup_handlers({
 
         require("lspconfig")[server_name].setup(server_opts)
     end,
-    --[[ ["ols"] = function()
+    ["ols"] = function()
         require("lspconfig").ols.setup({
             init_options = {
                 enable_hover = true,
@@ -87,9 +87,12 @@ mason_lsp.setup_handlers({
                 enable_semantic_tokens = true,
                 enable_document_symbols = true,
                 enable_checker_only_saved = false,
+                collections = {
+                    { name = "thirdparty", path = vim.fn.expand('$HOME/Projects/ooga-booga/untitled/output') }
+                },
             },
         })
-    end, ]]
+    end,
     ["lua_ls"] = function()
         require("lspconfig").lua_ls.setup({
             settings = {
