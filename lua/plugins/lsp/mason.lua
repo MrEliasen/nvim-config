@@ -1,8 +1,8 @@
 local mason = require("mason")
 local mason_lsp = require("mason-lspconfig")
 local cmp_lsp = require("cmp_nvim_lsp")
--- local lspconfig = require('lspconfig')
 
+require'lspconfig'.protols.setup{}
 --[[ lspconfig.gdscript.setup {
     force_setup = true, -- because the LSP is global. Read more on lsp-zero docs about this.
     single_file_support = false,
@@ -11,7 +11,8 @@ local cmp_lsp = require("cmp_nvim_lsp")
     filetypes = {'gd', 'gdscript', 'gdscript3' }
 } ]]
 
-mason.setup({
+mason.setup({})
+mason_lsp.setup({
     ui = {
         icons = {
             package_installed = "✓",
@@ -19,46 +20,23 @@ mason.setup({
             package_uninstalled = "✗"
         }
     },
-    ensure_installed = {
-        "bash-language-server",
-        "blade-formatter",
-        "docker-compose-language-service",
-        "dockerfile-language-server",
-        "dot-language-server",
-        "html-lsp",
-        "intelephense",
-        "phpstan",
-        "prettierd",
-        "gopls",
-        "lua_ls",
-        "jsonls",
-        "eslint",
-        "tailwindcss",
-        "cssls",
-        "bashls",
-        "svelte-language-server",
-        "tailwindcss-language-server",
-    },
-})
-
-mason_lsp.setup({
     -- A list of servers to automatically install if they're not already installed
     ensure_installed = {
-        "lua_ls",
-        "jsonls",
+        "bashls",
+        "cssls",
+        "dockerls",
         "eslint",
-        "tailwindcss",
+        "gopls",
         "html",
         "intelephense",
-        "phpactor",
-        "gopls",
-        "cssls",
-        "bashls",
-        "svelte",
-        "ols",
-        "yamlls",
-        "dockerls",
+        "jsonls",
+        "lua_ls",
         "marksman",
+        "ols",
+        "phpactor",
+        "svelte",
+        "tailwindcss",
+        "yamlls",
     },
     automatic_installation = true,
 })
