@@ -64,10 +64,7 @@ mason_lsp.setup_handlers({
                 enable_snippets = true,
                 enable_semantic_tokens = true,
                 enable_document_symbols = true,
-                enable_checker_only_saved = false,
-                collections = {
-                    { name = "thirdparty", path = vim.fn.expand('$HOME/Projects/ooga-booga/untitled/output') }
-                },
+                enable_checker_only_saved = true,
             },
         })
     end,
