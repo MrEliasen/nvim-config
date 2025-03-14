@@ -12,7 +12,6 @@ local options = {
     hlsearch = true,
     ignorecase = true,
     laststatus = 3,
-    mouse = "a",
     number = true,
     numberwidth = 4,
     pumheight = 10,
@@ -43,6 +42,9 @@ local options = {
 for k, v in pairs(options) do
     vim.opt[k] = v
 end
+
+-- disable mouse entirely, normally not a problem in iterm, but needed in ghostty.
+vim.opt['mouse'] =
 
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
