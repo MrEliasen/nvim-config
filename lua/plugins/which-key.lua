@@ -51,6 +51,7 @@ local mappings = {
     { "<leader>ra", "<cmd>RustRunnables<cr>",                                                              mode = "n", desc = "Runnables" }, ]]
     { "<leader>e",  group = "Code Macros" },
     { "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>",                                          mode = "n", desc = "Insert if err nil statement" },
+    { "<leader>eo", "oif !ok {<CR>}<Esc>Oreturn<Esc>",                                                     mode = "n", desc = "Insert if !ok statement" },
     { "<leader>c",  group = "Cloak" },
     { "<leader>cc", "<cmd>:CloakToggle<cr>",                                                               mode = "n", desc = "Toggle" },
     { "<leader>u",  group = "Trouble" },
