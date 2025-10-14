@@ -39,14 +39,16 @@ local opts = {
 
 vim.lsp.config('ols', {
     init_options = {
-        enable_hover = true,
-        enable_snippets = true,
         enable_semantic_tokens = true,
         enable_document_symbols = true,
+        enable_hover = true,
+        enable_snippets = true,
+        enable_references = true,
         enable_checker_only_saved = true,
         collections = {
-            { name = "thirdparty", path = vim.fn.expand('$HOME/Projects/ooga-booga/arena/additional-libs') }
-        },
+            { name = "bald", path = "/Users/markeliasen/Projects/ooga-booga/games/LATEST/client/bald" },
+            { name = "user", path = "/Users/markeliasen/Projects/ooga-booga/games/LATEST/client/bald-user" }
+        }
     },
 });
 
@@ -67,21 +69,6 @@ vim.lsp.config("lua_ls", {
     },
 })
 
-vim.lsp.config("phpactor", {
-    init_options = {
-        ["language_server_phpstan.enabled"] = false,
-    },
-    settings = {
-        phpactor = {
-            diagnostics = {
-                phpstan = {
-                    enabled = false, -- Disable PHPStan diagnostics (syntax errors)
-                },
-            },
-        },
-    },
-})
-
 vim.lsp.config("gopls", {
     settings = {
         gopls = {
@@ -90,6 +77,23 @@ vim.lsp.config("gopls", {
             },
             staticcheck = true,
             gofumpt = true,
+        },
+    },
+})
+
+vim.lsp.config("lua_ls", {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { "vim" },
+            },
+            workspace = {
+                library = vim.api.nvim_get_runtime_file("", true),
+                checkThirdParty = false,
+            },
+            telemetry = {
+                enable = false,
+            },
         },
     },
 })

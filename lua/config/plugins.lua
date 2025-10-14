@@ -93,6 +93,15 @@ return {
     { "ThePrimeagen/harpoon",    branch = "harpoon2", dependencies = { "nvim-lua/plenary.nvim" } },
 
     -- LSP
+    {
+        'nvim-flutter/flutter-tools.nvim',
+        lazy = false,
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            --'stevearc/dressing.nvim', -- optional for vim.ui.select
+        },
+        config = true,
+    },
     --[[ {
         "github/copilot.vim"
     }, ]]

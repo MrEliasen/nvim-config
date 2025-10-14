@@ -17,6 +17,7 @@ require("plugins.lsp.mason")
 require("plugins.lsp.trouble")
 require("plugins.lsp.inc-rename")
 require("plugins.lsp.nvim-lsp")
+require("plugins.lsp.flutter")
 -- require("plugins.dap-go")
 -- CMP
 require("plugins.cmp.cmp")
