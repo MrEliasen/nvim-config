@@ -2,7 +2,8 @@ local mason = require("mason")
 local mason_lsp = require("mason-lspconfig")
 local cmp_lsp = require("cmp_nvim_lsp")
 
-require 'lspconfig'.protols.setup {}
+--require 'lspconfig'.protols.setup {}
+
 mason.setup({})
 mason_lsp.setup({
     ui = {
@@ -51,6 +52,15 @@ vim.lsp.config('ols', {
         }
     },
 });
+
+
+vim.lsp.config("intelephense", {
+    filetypes = { "php", "blade", "php_only" },
+    files = {
+        associations = { "*.php", "*.blade.php" },
+        maxSize = 5000000,
+    },
+})
 
 vim.lsp.config("lua_ls", {
     settings = {
