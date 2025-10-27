@@ -121,6 +121,9 @@ return {
     {
         "neovim/nvim-lspconfig",
     },
+    {
+        "aznhe21/actions-preview.nvim",
+    },
     --[[ {
         "stevearc/conform.nvim"
     }, ]]
