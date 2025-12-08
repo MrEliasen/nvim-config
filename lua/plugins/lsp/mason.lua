@@ -47,8 +47,8 @@ vim.lsp.config('ols', {
         enable_references = true,
         enable_checker_only_saved = true,
         collections = {
-            { name = "bald", path = "/Users/markeliasen/Projects/ooga-booga/games/LATEST/client/bald" },
-            { name = "user", path = "/Users/markeliasen/Projects/ooga-booga/games/LATEST/client/bald-user" }
+            --{ name = "bald", path = "/Users/markeliasen/Projects/ooga-booga/games/LATEST/client/bald" },
+            --{ name = "user", path = "/Users/markeliasen/Projects/ooga-booga/games/LATEST/client/bald-user" }
         }
     },
 });
@@ -105,5 +105,24 @@ vim.lsp.config("lua_ls", {
                 enable = false,
             },
         },
+    },
+})
+
+vim.lsp.config("ts_ls", {
+    init_options = {
+        plugins = {
+            {
+                name = "@vue/typescript-plugin",
+                location = "/Users/markeliasen/.nvm/versions/node/v25.1.0/lib/node_modules/@vue/typescript-plugin",
+                -- which node
+                -- npm install --global @vue/typescript-plugin
+                languages = { "javascript", "typescript", "vue" },
+            },
+        },
+    },
+    filetypes = {
+        "javascript",
+        "typescript",
+        "vue",
     },
 })

@@ -15,6 +15,8 @@ local mappings = {
     { "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<CR>",                               mode = "n", desc = "Help tags" },
     { "<leader>fb", "<cmd>lua require('telescope').extensions.file_browser.file_browser()<CR>",            mode = "n", desc = "Browse Files" },
     { "<leader>fB", "<cmd>lua require('telescope').extensions.file_browser.file_browser(%:p:h, true)<CR>", mode = "n", desc = "Browse Relative" },
+    { "<leader>m",  group = "Markdown" },
+    { "<leader>mm", "<cmd>:RenderMarkdown toggle<cr>",                                                              mode = "n", desc = "Toggle rendering" },
     { "<leader>b",  group = "Buffers" },
     { "<leader>bd", "<cmd>bdelete<cr>",                                                                    mode = "n", desc = "Close Current" },
     { "<leader>bm", "<cmd>BufferLineCloseRight<cr><cmd>BufferLineCloseLeft<cr>",                           mode = "n", desc = "Close all other" },
