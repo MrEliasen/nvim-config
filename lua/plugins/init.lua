@@ -15,6 +15,22 @@ return {
         'nvim-treesitter/nvim-treesitter',
         lazy = false,
         build = ':TSUpdate',
+        config = function()
+            require('nvim-treesitter.parsers').blade = {
+                install_info = {
+                    url = "https://github.com/EmranMR/tree-sitter-blade",
+                    files = { "src/parser.c" },
+                    branch = "main",
+                },
+                filetype = "blade",
+            }
+
+            vim.filetype.add({
+                pattern = {
+                    ['.*%.blade%.php'] = 'blade',
+                }
+            })
+        end,
     },
     {
         'nvim-telescope/telescope.nvim',
@@ -118,8 +134,8 @@ return {
         },
         opts_extend = { "sources.default" }
     },
-    { 'akinsho/bufferline.nvim', version = "*",       dependencies = 'nvim-tree/nvim-web-devicons' },
-    { "ThePrimeagen/harpoon",    branch = "harpoon2", dependencies = { "nvim-lua/plenary.nvim" } },
+    { 'akinsho/bufferline.nvim',                  version = "*",                                                                                                  dependencies = 'nvim-tree/nvim-web-devicons' },
+    { "ThePrimeagen/harpoon",                     branch = "harpoon2",                                                                                            dependencies = { "nvim-lua/plenary.nvim" } },
     {
         'nvim-flutter/flutter-tools.nvim',
         lazy = false,

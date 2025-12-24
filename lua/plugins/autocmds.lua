@@ -3,11 +3,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     callback = function()
         local params = vim.lsp.util.make_range_params()
         params.context = { only = { "source.organizeImports" } }
-        -- buf_request_sync defaults to a 1000ms timeout. Depending on your
-        -- machine and codebase, you may want longer. Add an additional
-        -- argument after params if you find that you have to write the file
-        -- twice for changes to be saved.
-        -- E.g., vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 3000)
         local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params)
         for cid, res in pairs(result or {}) do
             for _, r in pairs(res.result or {}) do
@@ -39,11 +34,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
         vim.schedule(function()
             -- Check if the attached client is 'intelephense'
-            for _, client in ipairs(vim.lsp.get_active_clients()) do
+            for _, client in ipairs(vim.lsp.get_clients()) do
                 if client.name == "intelephense" and client.attached_buffers[args.buf] then
-                    vim.api.nvim_buf_set_option(args.buf, "filetype", "blade")
-                    -- update treesitter parser to blade
-                    vim.api.nvim_buf_set_option(args.buf, "syntax", "blade")
+                    vim.api.nvim_buf_set_var(args.buf, "filetype", "blade")
+                    vim.api.nvim_buf_set_var(args.buf, "syntax", "blade")
                     break
                 end
             end

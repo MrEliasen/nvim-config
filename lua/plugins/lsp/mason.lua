@@ -56,13 +56,58 @@ vim.lsp.config('ols', {
     },
 });
 
+vim.lsp.config.tailwindcss = {
+    cmd = {
+        "tailwindcss-language-server",
+        "--stdio"
+    },
+    filetypes = {
+        "gohtml",
+        "html",
+        "markdown",
+        "twig",
+        "css",
+        "less",
+        "postcss",
+        "sass",
+        "scss",
+        "javascript",
+        "typescript",
+        "vue",
+        "svelte",
+        "blade",
+        "php",
+    },
+    root_pattern = {
+        'tailwind.config.js',
+        'tailwind.config.ts',
+        'postcss.config.js',
+        'postcss.config.ts',
+        'package.json',
+        'node_modules',
+        '.git'
+    },
+    settings = {
+        tailwindCSS = {
+            classAttributes = { "class", "className", "classList", "ngClass" },
+            lint = {
+                cssConflict = "warning",
+                invalidApply = "error",
+                invalidConfigPath = "error",
+                invalidScreen = "error",
+                invalidTailwindDirective = "error",
+                invalidVariant = "error",
+                recommendedVariantOrder = "warning"
+            },
+            validate = true
+        }
+    }
+}
 
 vim.lsp.config("intelephense", {
+    cmd = { "intelephense", "--stdio" },
     filetypes = { "php", "blade", "php_only" },
-    files = {
-        associations = { "*.php", "*.blade.php" },
-        maxSize = 5000000,
-    },
+    root_pattern = { 'composer.json', '.git' }
 })
 
 vim.lsp.config("lua_ls", {
