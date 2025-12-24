@@ -1,6 +1,7 @@
 local mason = require("mason")
 local mason_lsp = require("mason-lspconfig")
 local cmp_lsp = require("cmp_nvim_lsp")
+local util = require 'lspconfig.util'
 
 --require 'lspconfig'.protols.setup {}
 
@@ -45,11 +46,13 @@ vim.lsp.config('ols', {
         enable_hover = true,
         enable_snippets = true,
         enable_references = true,
+        enable_inlay_hints_params = true,
+        enable_inlay_hints_default_params = true,
+        enable_inlay_hints_implicit_return = true,
         enable_checker_only_saved = true,
-        collections = {
-            --{ name = "bald", path = "/Users/markeliasen/Projects/ooga-booga/games/LATEST/client/bald" },
-            --{ name = "user", path = "/Users/markeliasen/Projects/ooga-booga/games/LATEST/client/bald-user" }
-        }
+        enable_auto_import = true,
+        checker_args = "-strict-style",
+        collections = {}
     },
 });
 

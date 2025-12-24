@@ -8,6 +8,7 @@ telescope.setup({
             "node_modules/*",
             "vendor/*",
             "public/js/*",
+            "**/*.min.*",
         },
         mappings = {
             i = {

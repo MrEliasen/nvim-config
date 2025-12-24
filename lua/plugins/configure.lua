@@ -1,28 +1,25 @@
 require("plugins.theme")
 require("plugins.telescope")
--- require("plugins.conform")
 require("plugins.harpoon")
 require("plugins.which-key")
 require("plugins.lualine")
 require("plugins.toggleterm")
 require("plugins.treesitter")
 require("plugins.comment")
---require("plugins.conform")
 require("plugins.bufferline")
 require("plugins.fidget")
 require("plugins.alpha")
 require("plugins.hlslens")
+require("plugins.autocmds")
+require("plugins.cloak")
+
 -- LSP
 require("plugins.lsp.mason")
 require("plugins.lsp.trouble")
 require("plugins.lsp.inc-rename")
 require("plugins.lsp.nvim-lsp")
 require("plugins.lsp.flutter")
--- require("plugins.dap-go")
+
 -- CMP
 require("plugins.cmp.cmp")
--- require("plugins.cmp.actions-preview")
--- MISC
-require("plugins.autocmds")
-require("plugins.cloak")
--- require("plugins.scrolls")
+require("plugins.cmp.actions-preview")

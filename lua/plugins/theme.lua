@@ -19,8 +19,8 @@ require("catppuccin").setup({
                 CmpBorder = { fg = C.surface2 },
                 Pmenu = { bg = C.none },
 
-                NormalFloat = { bg = C.base2, fg = C.text }, -- Set a solid background for floating windows
-                FloatBorder = { bg = C.base2, fg = C.surface2 }, -- Set border colors for float
+                NormalFloat = { bg = C.base2, fg = C.text },                  -- Set a solid background for floating windows
+                FloatBorder = { bg = C.base2, fg = C.surface2 },              -- Set border colors for float
                 LspSignatureActiveParameter = { bg = C.mantle, fg = C.text }, -- Highlight active signature parameter
             }
         end,
