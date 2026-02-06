@@ -1,11 +1,13 @@
-require("nvim-treesitter").setup({
+return {
+    {
+        "nvim-treesitter/nvim-treesitter",
+        opts = {
     ensure_installed = {
         "markdown",
         "html",
         "css",
         "javascript",
         "typescript",
-        "tsx",
         "json",
         "svelte",
         "odin",
@@ -13,9 +15,6 @@ require("nvim-treesitter").setup({
         "c",
         "python",
         "php",
-        "php_only",
-        "java",
-        "astro",
         "vue",
         "dockerfile",
         "yaml",
@@ -46,4 +45,7 @@ require("nvim-treesitter").setup({
     refactor = {
         highlight_definitions = { enable = true }
     },
-})
+
+}
+    },
+}

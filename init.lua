@@ -1,9 +1,7 @@
--- Dependencies
+require("config.lazy")
 require("config.options")
 require("config.keymaps")
-require("config.lazy")
 require("config.autocmd")
+require("config.lsp")
 
--- plugins
-require("plugins/init")
-require("plugins/configure")
+vim.cmd.colorscheme("catppuccin")

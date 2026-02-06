@@ -1,4 +1,17 @@
-local mappings = {
+return {
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        init = function()
+            vim.o.timeout = false
+            vim.o.timeoutlen = 0
+        end,
+        opts = {
+	    preset = "helix",
+	    delay = 0,
+	    timeoutlen = 0,
+        },
+keys = {
     { "<leader>w",  "<cmd>w<cr>",                                                                          mode = "n", desc = "Save" },
     { "<leader>q",  "<cmd>q<cr>",                                                                          mode = "n", desc = "Quit" },
     { "<leader>s",  group = "Search & Replace" },
@@ -8,6 +21,7 @@ local mappings = {
     { "<leader>sf", [[:.,.+0s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],                            mode = "n", desc = "Same Line - Replace Word" },
     { "<leader>p",  group = "Project" },
     { "<leader>pv", "<cmd>Ex<CR>",                                                                         mode = "n", desc = "NetRW Explorer", },
+    --{ "<leader>pv", "<cmd>Neotree toggle<cr>", mode = "n", desc = "Explorer" },
     { "<leader>f",  group = "Find" },
     { "<leader>ft", "<cmd>lua require('telescope.builtin').live_grep()<CR>",                               mode = "n", desc = "Text" },
     { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files({ hidden=true })<CR>",               mode = "n", desc = "Files" },
@@ -61,18 +75,9 @@ local mappings = {
     { "<leader>Fq", ":FlutterQuit<cr>",                                       mode = "n", desc = "Quit" },
     { "<leader>Fl", ":FlutterLspRestart<cr>",                                 mode = "n", desc = "Restart LSP Server" },
     { "<leader>Fn", ":FlutterRename<cr>",                                     mode = "n", desc = "Rename" },
-    --{ "<leader>lT", "<cmd>lua vim.lsp.buf.type_definition()<cr>",                                          mode = "n", desc = "Type definition" },
-    --{ "<leader>lk", "<cmd>lua vim.lsp.buf.signature_help()<cr>",                                           mode = "n", desc = "Signature help" },
-    --[[ { "<leader>S",  group = "Spell Checker" },
-    { "<leader>Sj", "<cmd>]s<cr>",                                                                         mode = "n", desc = "Next word" },
-    { "<leader>Sk", "<cmd>[s<cr>",                                                                         mode = "n", desc = "Previous word" },
-    { "<leader>Ss", "<cmd>z=<cr>",                                                                         mode = "n", desc = "Show suggestions" }, ]]
-    --[[ { "<leader>r",  group = "Rust" },
-    { "<leader>rr", "<cmd>RustRun<cr>",                                                                    mode = "n", desc = "Run" },
-    { "<leader>ra", "<cmd>RustRunnables<cr>",                                                              mode = "n", desc = "Runnables" }, ]]
-    { "<leader>e",  group = "Code Macros" },
-    { "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>",             mode = "n", desc = "Insert if err nil statement" },
-    { "<leader>eo", "oif !ok {<CR>}<Esc>Oreturn<Esc>",                        mode = "n", desc = "Insert if !ok statement" },
+    { "<leader>",  group = "Code Macros" },
+    { "<leader>ge", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>",             mode = "n", desc = "Insert if err nil statement" },
+    { "<leader>go", "oif !ok {<CR>}<Esc>Oreturn<Esc>",                        mode = "n", desc = "Insert if !ok statement" },
     { "<leader>c",  group = "Cloak" },
     { "<leader>cc", "<cmd>:CloakToggle<cr>",                                  mode = "n", desc = "Toggle" },
     { "<leader>u",  group = "Trouble" },
@@ -83,13 +88,5 @@ local mappings = {
     { "<leader>ul", "<cmd>TroubleToggle loclist<cr>",                         mode = "n", desc = "LocationList" },
     { "<leader>uw", "<cmd>TroubleToggle workspace_diagnostics<cr>",           mode = "n", desc = "Workspace Diagnostics" },
 }
-
-local opts = {
-    preset = "helix",
-    delay = 0,
-    timeoutlen = 0,
+    },
 }
-
-local wk = require("which-key")
-wk.setup(opts)
-wk.add(mappings)

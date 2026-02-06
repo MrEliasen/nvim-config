@@ -1,18 +1,17 @@
-require("cloak").setup({
-    enabled = true,
-    cloak_character = "*",
-    highlight_group = "Comment",
-    patterns = {
-        {
-            -- Match any file starting with ".env".
-            -- This can be a table to match multiple file patterns.
-            file_pattern = {
-                ".env*",
+return {
+    {
+        "laytan/cloak.nvim",
+        event = "VeryLazy",
+        opts = {
+            enabled = true,
+            cloak_character = "•",
+            highlight_group = "Comment",
+            patterns = {
+                {
+                    file_pattern = { ".env*", "wrangler.toml", ".npmrc" },
+                    cloak_pattern = "=.+",
+                },
             },
-            -- Match an equals sign and any character after it.
-            -- This can also be a table of patterns to cloak,
-            -- example: cloak_pattern = { ":.+", "-.+" } for yaml files.
-            cloak_pattern = "=.+"
         },
     },
-})
+}
