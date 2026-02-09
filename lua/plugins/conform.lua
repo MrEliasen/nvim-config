@@ -3,10 +3,7 @@ return {
         "stevearc/conform.nvim",
         event = { "BufReadPre", "BufNewFile" },
         opts = {
-            -- optional: enable format-on-save
-            -- format_on_save = function()
-            --     return { lsp_fallback = true, timeout_ms = 2000 }
-            -- end,
+            format_on_save = false,
 
             formatters_by_ft = {
                 javascript = { "prettierd", "prettier" },
@@ -23,7 +20,7 @@ return {
                 markdown = { "prettierd", "prettier" },
                 go = { "goimports", "gofumpt" },
                 lua = { "stylua" },
-                php = { "pint", "php_cs_fixer" },
+                php = { "intelephense", "php_cs_fixer" },
                 dart = { "dart_format" },
             },
 
