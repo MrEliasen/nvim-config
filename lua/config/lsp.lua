@@ -116,3 +116,11 @@ vim.lsp.config("vue_ls", {
     capabilities = capabilities,
 })
 vim.lsp.enable("vue_ls")
+
+-- JSON (jsonls)
+vim.lsp.config("jsonls", {
+    cmd = { "json-language-server", "--stdio" },
+    filetypes = { "json", "jsonc" },
+    capabilities = capabilities,
+})
+vim.lsp.enable("jsonls")
