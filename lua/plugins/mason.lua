@@ -8,8 +8,6 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     opts = {
       ensure_installed = {
-        "bashls",
-        "cssls",
         "dockerls",
         "eslint-lsp",
         "gofumpt",
@@ -21,7 +19,6 @@ return {
         "lua_ls",
         "marksman",
         "ols",
-        "phpactor",
         "prettierd",
         "svelte",
         "tailwindcss",
