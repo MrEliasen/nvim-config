@@ -92,7 +92,7 @@ return {
             { "<leader>Fq", ":FlutterQuit<cr>",                                                              mode = "n", desc = "Quit" },
             { "<leader>Fl", ":FlutterLspRestart<cr>",                                                        mode = "n", desc = "Restart LSP Server" },
             { "<leader>Fn", ":FlutterRename<cr>",                                                            mode = "n", desc = "Rename" },
-            { "<leader>",   group = "Code Macros" },
+
             { "<leader>ge", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>",                                    mode = "n", desc = "Insert if err nil statement" },
             { "<leader>go", "oif !ok {<CR>}<Esc>Oreturn<Esc>",                                               mode = "n", desc = "Insert if !ok statement" },
             { "<leader>c",  group = "Cloak" },

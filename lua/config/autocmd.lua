@@ -71,3 +71,11 @@ aucmd("FileType", {
 		vim.bo.expandtab = true
 	end,
 })
+
+aucmd({ "BufRead", "BufNewFile" }, {
+	group = grp,
+	pattern = { "docker-compose.yml", "docker-compose.yaml", "compose.yml", "compose.yaml" },
+	callback = function()
+		vim.bo.filetype = "yaml.docker-compose"
+	end,
+})
