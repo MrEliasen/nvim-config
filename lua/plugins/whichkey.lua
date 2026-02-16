@@ -27,6 +27,9 @@ return {
             preset = "helix",
             delay = 0,
             timeoutlen = 0,
+            triggers = {
+                { "<leader>", mode = { "n", "v" } },
+            },
         },
         keys = {
             { "<leader>w",  "<cmd>w<cr>",                                                                          mode = "n", desc = "Save" },

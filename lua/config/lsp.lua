@@ -141,10 +141,10 @@ vim.lsp.config("jsonls", {
 })
 vim.lsp.enable("jsonls")
 
--- Dockerfile (dockerls)
-vim.lsp.config("dockerls", {
+-- Dockerfile (dockerfile-language-server)
+vim.lsp.config("dockerfile-language-server", {
 	cmd = { "docker-langserver", "--stdio" },
-	filetypes = { "dockerfile", "yaml.docker-compose" },
+	filetypes = { "Dockerfile", "dockerfile", "yaml.docker-compose" },
 	capabilities = capabilities,
 })
-vim.lsp.enable("dockerls")
+vim.lsp.enable("dockerfile-language-server")
