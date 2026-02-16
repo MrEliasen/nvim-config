@@ -72,6 +72,7 @@ aucmd("FileType", {
 	end,
 })
 
+-- Docker compose
 aucmd({ "BufRead", "BufNewFile" }, {
 	group = grp,
 	pattern = { "docker-compose.yml", "docker-compose.yaml", "compose.yml", "compose.yaml" },
@@ -79,3 +80,5 @@ aucmd({ "BufRead", "BufNewFile" }, {
 		vim.bo.filetype = "yaml.docker-compose"
 	end,
 })
+
+vim.treesitter.language.register("yaml", { "yaml.docker-compose" })
