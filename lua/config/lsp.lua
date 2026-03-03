@@ -10,7 +10,7 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 -- LUA
-vim.lsp.config("lua_ls", {
+vim.lsp.config("lua", {
 	cmd = { "lua-language-server" },
 	filetypes = { "lua" },
 	root_dir = root({ ".git", ".luarc.json", ".luarc.jsonc" }),
@@ -23,7 +23,7 @@ vim.lsp.config("lua_ls", {
 	},
 	capabilities = capabilities,
 })
-vim.lsp.enable("lua_ls")
+vim.lsp.enable("lua")
 
 -- GO
 vim.lsp.config("gopls", {
