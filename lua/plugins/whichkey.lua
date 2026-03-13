@@ -15,6 +15,33 @@ vim.api.nvim_create_user_command("LspRestartBuffer", function()
     end, 100)
 end, {})
 
+-- Project search
+vim.api.nvim_create_user_command("FindInProject", function(opts)
+  if #opts.fargs ~= 2 then
+    vim.notify("FindInProject expects 2 args: <pattern> <glob>", vim.log.levels.ERROR)
+    return
+  end
+
+  local pattern = vim.fn.escape(opts.fargs[1], [[/\]])
+  local glob = opts.fargs[2]
+
+  vim.cmd(("silent vimgrep /%s/gj %s"):format(pattern, glob))
+  vim.cmd("copen")
+end, { nargs = "+" })
+
+-- find and replace in project
+vim.api.nvim_create_user_command("FindAndReplace", function(opts)
+  if #opts.fargs ~= 2 then
+    vim.notify("FindAndReplace expects exactly 2 arguments", vim.log.levels.ERROR)
+    return
+  end
+
+  local find = vim.fn.escape(opts.fargs[1], [[/\]])
+  local repl = vim.fn.escape(opts.fargs[2], [[/\&]])
+
+  vim.cmd(("cfdo %%s/%s/%s/g | update"):format(find, repl))
+end, { nargs = "+" })
+
 return {
     {
         "folke/which-key.nvim",
@@ -49,6 +76,8 @@ return {
             { "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<CR>",                               mode = "n", desc = "Help tags" },
             { "<leader>fb", "<cmd>lua require('telescope').extensions.file_browser.file_browser()<CR>",            mode = "n", desc = "Browse Files" },
             { "<leader>fB", "<cmd>lua require('telescope').extensions.file_browser.file_browser(%:p:h, true)<CR>", mode = "n", desc = "Browse Relative" },
+            { "<leader>fF", ":FindInProject ",                                                                      mode = "n", desc = "Find in project" },
+            { "<leader>fR", ":FindAndReplace ",                                                                    mode = "n", desc = "Find replace across project" },
             { "<leader>m",  group = "Markdown" },
             { "<leader>mm", "<cmd>:MarkdownPreview<cr>",                                                           mode = "n", desc = "Start Preview" },
             { "<leader>ms", "<cmd>:MarkdownPreviewStop<cr>",                                                       mode = "n", desc = "Stop Preview" },
