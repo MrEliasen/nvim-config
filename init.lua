@@ -4,4 +4,4 @@ require("config.autocmd")
 require("config.lazy")
 require("config.lsp")
 
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("catppuccin-nvim")
