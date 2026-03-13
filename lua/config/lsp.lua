@@ -1,9 +1,9 @@
 local function root(patterns)
-	return function(bufnr, cb)
-		local fname = vim.api.nvim_buf_get_name(bufnr)
-		local r = vim.fs.root(fname, patterns)
-		cb(r or vim.fn.getcwd())
-	end
+  return function(bufnr, cb)
+    local fname = vim.api.nvim_buf_get_name(bufnr)
+    local r = vim.fs.root(fname, patterns)
+    cb(vim.fs.root(fname, patterns) or r)
+  end
 end
 
 -- Common client capabilities (works fine without cmp; extend later if you add cmp)
@@ -29,7 +29,7 @@ vim.lsp.enable("lua")
 vim.lsp.config("gopls", {
 	cmd = { "gopls" },
 	filetypes = { "go", "gomod", "gosum", "gotmpl" },
-	root_dir = root({ "go.work", "go.mod", ".git" }),
+	root_dir = root({ "go.mod", "go.sum" }),
 	settings = {
 		gopls = {
 			gofumpt = true,
@@ -156,3 +156,12 @@ vim.lsp.config("docker-compose-language-service", {
 	capabilities = capabilities,
 })
 vim.lsp.enable("docker-compose-language-service")
+
+-- Protobuf (protols)
+vim.lsp.config("protols", {
+	cmd = { "protols", "--stdio" },
+	filetypes = { "proto" },
+	root_dir = root({ "proto" }),
+	capabilities = capabilities,
+})
+vim.lsp.enable("protols")
