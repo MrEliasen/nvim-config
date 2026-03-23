@@ -2,7 +2,12 @@ return {
 	{
 		"mason-org/mason.nvim",
 		build = ":MasonUpdate",
-		opts = {},
+		opts = {
+          registries = {
+            "github:mason-org/mason-registry",
+            "github:Crashdummyy/mason-registry"
+          },
+        },
 	},
 	{
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -21,6 +26,7 @@ return {
 				"marksman",
 				"ols",
 				"prettierd",
+                "roslyn",
 				"tailwindcss-language-server",
 				"vtsls",
 				"vue-language-server",

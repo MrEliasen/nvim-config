@@ -1,9 +1,9 @@
 local function root(patterns)
-  return function(bufnr, cb)
-    local fname = vim.api.nvim_buf_get_name(bufnr)
-    local r = vim.fs.root(fname, patterns)
-    cb(vim.fs.root(fname, patterns) or r)
-  end
+	return function(bufnr, cb)
+		local fname = vim.api.nvim_buf_get_name(bufnr)
+		local r = vim.fs.root(fname, patterns)
+		cb(vim.fs.root(fname, patterns) or r)
+	end
 end
 
 -- Common client capabilities (works fine without cmp; extend later if you add cmp)
@@ -165,3 +165,6 @@ vim.lsp.config("protols", {
 	capabilities = capabilities,
 })
 vim.lsp.enable("protols")
+
+-- csharp (roslyn)
+vim.lsp.enable("roslyn")
