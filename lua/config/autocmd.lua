@@ -82,3 +82,12 @@ aucmd({ "BufRead", "BufNewFile" }, {
 })
 
 vim.treesitter.language.register("yaml", { "yaml.docker-compose" })
+
+-- Spell only for prose filetypes
+aucmd("FileType", {
+	group = grp,
+	pattern = { "markdown", "gitcommit", "text", "help" },
+	callback = function()
+		vim.opt_local.spell = true
+	end,
+})

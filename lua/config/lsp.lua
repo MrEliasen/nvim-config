@@ -1,170 +1,79 @@
-local function root(patterns)
-	return function(bufnr, cb)
-		local fname = vim.api.nvim_buf_get_name(bufnr)
-		local r = vim.fs.root(fname, patterns)
-		cb(vim.fs.root(fname, patterns) or r)
-	end
+-- LSP bootstrap for Nvim 0.12+
+-- Server definitions live in `~/.config/nvim/lsp/<name>.lua`.
+-- This file wires global capabilities, diagnostics, LspAttach behaviour,
+-- and activates the server list via vim.lsp.enable().
+
+local ok_blink, blink = pcall(require, "blink.cmp")
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+if ok_blink then
+	capabilities = blink.get_lsp_capabilities(capabilities)
 end
 
--- Common client capabilities (works fine without cmp; extend later if you add cmp)
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+vim.lsp.config("*", {
+	capabilities = capabilities,
+	root_markers = { ".git" },
+})
 
--- LUA
-vim.lsp.config("lua", {
-	cmd = { "lua-language-server" },
-	filetypes = { "lua" },
-	root_dir = root({ ".git", ".luarc.json", ".luarc.jsonc" }),
-	settings = {
-		Lua = {
-			diagnostics = { globals = { "vim" } },
-			workspace = { checkThirdParty = false },
-			telemetry = { enable = false },
+vim.diagnostic.config({
+	severity_sort = true,
+	update_in_insert = false,
+	underline = true,
+	virtual_text = {
+		spacing = 2,
+		prefix = "●",
+		severity = { min = vim.diagnostic.severity.HINT },
+	},
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "",
+			[vim.diagnostic.severity.WARN] = "",
+			[vim.diagnostic.severity.INFO] = "",
+			[vim.diagnostic.severity.HINT] = "",
 		},
 	},
-	capabilities = capabilities,
-})
-vim.lsp.enable("lua")
-
--- GO
-vim.lsp.config("gopls", {
-	cmd = { "gopls" },
-	filetypes = { "go", "gomod", "gosum", "gotmpl" },
-	root_dir = root({ "go.mod", "go.sum" }),
-	settings = {
-		gopls = {
-			gofumpt = true,
-			staticcheck = true,
-			analyses = {
-				unusedparams = true,
-				nilness = true,
-				unusedwrite = true,
-				useany = true,
-			},
-			hints = {
-				assignVariableTypes = true,
-				compositeLiteralFields = true,
-				compositeLiteralTypes = true,
-				constantValues = true,
-				functionTypeParameters = true,
-				parameterNames = true,
-				rangeVariableTypes = true,
-			},
-		},
+	float = {
+		border = "rounded",
+		source = true,
+		header = "",
+		prefix = "",
 	},
-	capabilities = capabilities,
 })
-vim.lsp.enable("gopls")
 
--- PHP / Laravel
-vim.lsp.config("intelephense", {
-	cmd = { "intelephense", "--stdio" },
-	filetypes = { "php", "blade" },
-	root_dir = root({ "composer.json", "artisan", ".git" }),
-	settings = {
-		intelephense = {
-			files = {
-				maxSize = 5000000,
-			},
-			format = { enable = false },
-			completion = {
-				insertUseDeclaration = true,
-				triggerParameterHints = true,
-			},
-		},
-	},
-	capabilities = capabilities,
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("user.lsp.attach", { clear = true }),
+	callback = function(ev)
+		local client = vim.lsp.get_client_by_id(ev.data.client_id)
+		if not client then return end
+
+		if client:supports_method("textDocument/inlayHint") then
+			vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
+		end
+
+		if client:supports_method("textDocument/documentHighlight") then
+			local grp = vim.api.nvim_create_augroup("user.lsp.highlight." .. ev.buf, { clear = true })
+			vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+				group = grp,
+				buffer = ev.buf,
+				callback = vim.lsp.buf.document_highlight,
+			})
+			vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI", "BufLeave" }, {
+				group = grp,
+				buffer = ev.buf,
+				callback = vim.lsp.buf.clear_references,
+			})
+		end
+	end,
 })
-vim.lsp.enable("intelephense")
 
-vim.lsp.config("phpactor", {
-	cmd = { "phpactor", "language-server" },
-	filetypes = { "php", "blade" },
-	root_dir = root({ "composer.json", ".git" }),
-	root_markers = { ".git", "composer.json", ".phpactor.json", ".phpactor.yml" },
-	workspace_required = true,
-	init_options = {
-		["language_server_phpstan.enabled"] = false,
-		["language_server_psalm.enabled"] = false,
-	},
-	capabilities = capabilities,
+vim.lsp.enable({
+	"lua_ls",
+	"gopls",
+	"intelephense",
+	"ols",
+	"vtsls",
+	"vue_ls",
+	"jsonls",
+	"dockerls",
+	"docker_compose_ls",
+	"protols",
 })
---vim.lsp.enable("phpactor")
-
--- Odin
-vim.lsp.config("ols", {
-	cmd = { "ols" },
-	filetypes = { "odin" },
-	root_dir = root({ "ols.json", "odinfmt.json" }),
-	init_options = {
-		enable_semantic_tokens = true,
-		enable_document_symbols = true,
-		newline_limit = 2,
-		character_width = 100,
-		enable_hover = true,
-		enable_snippets = true,
-		enable_references = true,
-		enable_inlay_hints_params = true,
-		enable_inlay_hints_default_params = true,
-		enable_inlay_hints_implicit_return = true,
-		enable_checker_only_saved = false,
-		enable_auto_import = true,
-		checker_args = "-vet -vet-cast -vet-semicolon -vet-using-param",
-		collections = {},
-	},
-	capabilities = capabilities,
-})
-vim.lsp.enable("ols")
-
--- TS/JS (vtsls)
-vim.lsp.config("vtsls", {
-	cmd = { "vtsls", "--stdio" },
-	filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-	root_dir = root({ "package.json", "tsconfig.json", "jsconfig.json", ".git" }),
-	capabilities = capabilities,
-})
-vim.lsp.enable("vtsls")
-
--- Vue (Volar / vue-language-server)
-vim.lsp.config("vue_ls", {
-	cmd = { "vue-language-server", "--stdio" },
-	filetypes = { "vue" },
-	root_dir = root({ "package.json", "tsconfig.json", "jsconfig.json", ".git" }),
-	capabilities = capabilities,
-})
-vim.lsp.enable("vue_ls")
-
--- JSON (jsonls)
-vim.lsp.config("jsonls", {
-	cmd = { "json-language-server", "--stdio" },
-	filetypes = { "json", "jsonc" },
-	capabilities = capabilities,
-})
-vim.lsp.enable("jsonls")
-
--- Dockerfile (dockerfile-language-server)
-vim.lsp.config("dockerfile-language-server", {
-	cmd = { "docker-langserver", "--stdio" },
-	filetypes = { "Dockerfile", "dockerfile" },
-	capabilities = capabilities,
-})
-vim.lsp.enable("dockerfile-language-server")
-
--- Docker compose (docker-compose-language-service)
-vim.lsp.config("docker-compose-language-service", {
-	cmd = { "docker-compose-langserver", "--stdio" },
-	filetypes = { "yaml.docker-compose" },
-	capabilities = capabilities,
-})
-vim.lsp.enable("docker-compose-language-service")
-
--- Protobuf (protols)
-vim.lsp.config("protols", {
-	cmd = { "protols", "--stdio" },
-	filetypes = { "proto" },
-	root_dir = root({ "proto" }),
-	capabilities = capabilities,
-})
-vim.lsp.enable("protols")
-
--- csharp (roslyn)
-vim.lsp.enable("roslyn")

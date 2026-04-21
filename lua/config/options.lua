@@ -1,13 +1,6 @@
 vim.g.lazyvim_picker = "telescope"
 vim.g.lazyvim_cmp = "nvim-cmp"
 vim.g.lazyvim_php_lsp = "intelephense"
-
--- disable mouse entirely, normally not a problem in iterm, but needed in ghostty.
--- vim.cmd("set whichwrap+=<,>,[,],h,l")
--- vim.cmd([[set iskeyword+=-]])
--- vim.cmd([[set t_Co=256]])
--- vim.opt.shortmess:append("c")
-
 vim.opt.autoindent = true
 vim.opt.backup = false
 vim.opt.cmdheight = 1
@@ -36,7 +29,6 @@ vim.opt.smartindent = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.spelllang = 'en_gb'
-vim.opt.spell = true
 vim.opt.swapfile = false
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4

@@ -11,9 +11,6 @@ return {
 		},
 		config = function(_, opts)
 			vim.lsp.config("roslyn", {
-				on_attach = function()
-					print("roslyn attached")
-				end,
 				settings = {
 					["csharp|inlay_hints"] = {
 						csharp_enable_inlay_hints_for_implicit_object_creation = true,
