@@ -3,6 +3,7 @@ return {
         'saghen/blink.cmp',
         dependencies = { 'rafamadriz/friendly-snippets' },
         version = '1.*',
+        lazy = false,
         opts = function(_, opts)
             opts.keymap = opts.keymap or {}
             opts.keymap.preset = "default"

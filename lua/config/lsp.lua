@@ -76,4 +76,11 @@ vim.lsp.enable({
 	"dockerls",
 	"docker_compose_ls",
 	"protols",
+	"bashls",
+	"cssls",
+	"eslint",
+	"html",
+	"tailwindcss",
+	"yamlls",
+	"marksman",
 })

@@ -1,28 +1,25 @@
+vim.filetype.add({
+	extension = {
+		odin = "odin",
+		gosum = "gosum",
+		gotmpl = "gotmpl",
+	},
+	filename = {
+		["docker-compose.yml"] = "yaml.docker-compose",
+		["docker-compose.yaml"] = "yaml.docker-compose",
+		["compose.yml"] = "yaml.docker-compose",
+		["compose.yaml"] = "yaml.docker-compose",
+	},
+	pattern = {
+		[".*%.blade%.php"] = "blade",
+	},
+})
+
+vim.treesitter.language.register("yaml", { "yaml.docker-compose" })
+
 local aug = vim.api.nvim_create_augroup
 local aucmd = vim.api.nvim_create_autocmd
 local grp = aug("user_filetype_indent", { clear = true })
-
--- Odin
-aucmd({ "BufRead", "BufNewFile" }, {
-	group = grp,
-	pattern = "*.odin",
-	callback = function()
-		vim.bo.filetype = "odin"
-	end,
-})
-
--- Laravel Blade
-aucmd({ "BufRead", "BufNewFile" }, {
-	group = grp,
-	pattern = "*.blade.php",
-	callback = function()
-		vim.bo.filetype = "blade"
-		vim.bo.shiftwidth = 4
-		vim.bo.tabstop = 4
-		vim.bo.softtabstop = 4
-		vim.bo.expandtab = true
-	end,
-})
 
 -- 2-space ecosystems
 aucmd("FileType", {
@@ -60,7 +57,7 @@ aucmd("FileType", {
 	end,
 })
 
--- PHP (4 spaces)
+-- PHP + Blade (4 spaces)
 aucmd("FileType", {
 	group = grp,
 	pattern = { "php", "blade" },
@@ -71,17 +68,6 @@ aucmd("FileType", {
 		vim.bo.expandtab = true
 	end,
 })
-
--- Docker compose
-aucmd({ "BufRead", "BufNewFile" }, {
-	group = grp,
-	pattern = { "docker-compose.yml", "docker-compose.yaml", "compose.yml", "compose.yaml" },
-	callback = function()
-		vim.bo.filetype = "yaml.docker-compose"
-	end,
-})
-
-vim.treesitter.language.register("yaml", { "yaml.docker-compose" })
 
 -- Spell only for prose filetypes
 aucmd("FileType", {
