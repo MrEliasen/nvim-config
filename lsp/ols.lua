@@ -11,7 +11,7 @@ return {
 		enable_inlay_hints_params = true,
 		enable_inlay_hints_default_params = true,
 		enable_inlay_hints_implicit_return = true,
-		enable_checker_only_saved = false,
+		enable_checker_only_saved = true,
 		enable_auto_import = true,
 		checker_args = "-vet -vet-cast -vet-semicolon -vet-using-param",
 		character_width = 100,
